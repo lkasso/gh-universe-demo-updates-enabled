@@ -20,7 +20,8 @@ public final class App {
                     Class.forName("org.apache.commons.lang3.StringUtils"),
                     org.apache.avro.reflect.AvroName.class,
                     net.minidev.json.JSONArray.class,
-                    org.apache.logging.log4j.Logger.class
+                    org.apache.logging.log4j.Logger.class,
+                    org.apache.commons.text.CaseUtils.class
             );
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

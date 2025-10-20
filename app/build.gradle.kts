@@ -20,6 +20,12 @@ dependencies {
         exclude("org.apache.commons", "commons-compress")
     }
 
+    // Dependency with NO known direct vulnerabilities
+    implementation("org.apache.commons:commons-text:1.4")
+    // ... that will get upgraded to a vulnerable version (1.7) via another dependency's transitive dependency
+    // - org.apache.commons:commons-text:1.7 - https://www.cve.org/CVERecord?id=CVE-2022-42889
+    implementation("com.opencsv:opencsv:5.0")
+
     // Dependency with known vulnerabilities, only present at RUNTIME
     // - org.apache.commons:commons-lang3:3.14.0 - https://www.cve.org/CVERecord?id=CVE-2025-48924
     runtimeOnly("org.apache.commons:commons-lang3:3.14.0")
@@ -87,3 +93,5 @@ testing {
 application {
     mainClass = "org.example.App"
 }
+
+// Update build script.
